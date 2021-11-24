@@ -4,16 +4,78 @@ body{
   font-family: 'Nunito', sans-serif;
 }
 
+.container{
+  max-width: 1140px !important;
+}
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+  color: #152c5b;
+}
+
 .text-blue{
   color: #00ADDA;
+}
+
+.px-6{
+  padding-left: 5rem;
+  padding-right: 5rem;
+}
+
+.fs-52{
+  font-size: 52px;
+}
+
+.fw-600{
+  font-weight: 600;
+}
+
+.fw-700{
+  font-weight: 700;
+}
+
+.width-90{
+  width: 90%;
+}
+
+.width-70{
+  width: 70%;
+}
+
+.w-20{
+  width: 20%;
 }
 
 .text-pink{
   color: #FF3A75;
 }
 
+.text-white{
+  color: #FFF;
+}
+
 .bg-blue{
   background-color: #D3F6FF;
+}
+
+.bg-pink{
+  background-color: #FF3A75;
+}
+
+.badge {
+  font-size: 80%;
+  font-weight: 700;
+  line-height: 1;
+  display: inline-block;
+  padding: .35rem .5rem;
+  transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+  text-align: center;
+  vertical-align: baseline;
+  white-space: nowrap;
+  border-radius: .375rem;
+}
+
+.bg-success {
+  background-color: #5cc9a7 !important;
 }
 
 .btn-blue{
@@ -27,22 +89,22 @@ body{
   color: #00ADDA;
 }
 
-.btn-login:hover{
+/* .btn-login:hover{
   background-color: #00ADDA;
   border-color: #00ADDA;
   color: white;
-}
+} */
 
 .btn-register{
   background-color: #00ADDA;
   border-color: #00ADDA;
 }
 
-.btn-register:hover{
+/* .btn-register:hover{
   background-color: white;
   border-color: #00ADDA;
   color: #00ADDA;
-}
+} */
 
 .bg-login{
   background-image: url("../img/bg-login.png");
@@ -51,4 +113,67 @@ body{
   background-size: cover;
   height: 90%;
   width: 100%;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+
+
+.banner {
+  padding-top: 100px;
+}
+
+.pricing{
+  padding-top: 100px;
+}
+
+.card-pricing{
+  border-radius: .75rem;
+  box-shadow: 0 0 1.25rem rgba(31,45,61,.05);
+  border: 1px solid #eaecf3;
+}
+
+.card-pricing > .card-header{
+  background-color: transparent;
+}
+
+.bg-gradient-cyan {
+  background: linear-gradient(50deg,#4bd6e5 0,#4ba8e5 100%) !important;
+}
+
+.bg-gradient-light {
+  background: linear-gradient(50deg,#eaecf3 0,#ebeaf3 100%) !important;
+}
+
+.badge-2 {
+  display: inline-block;
+  padding: .35rem .5rem;
+  font-size: 80%;
+  font-weight: 700;
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: .375rem;
+  transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+
+.badge-circle-2 {
+  text-align: center;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 !important;
+  width: 1.25rem;
+  height: 1.25rem;
+  vertical-align: middle;
+  font-size: .75rem;
+  font-weight: 600;
+}
+
+.badge-soft-success {
+  color: #5cc9a7;
+  background-color: #def4ed;
 }

@@ -1,19 +1,17 @@
 import React from 'react'
 import '../assets/css/style.css'
 import Navbar from '../components/Navbar'
-import FormLogin from '../components/Login'
+import FormRegister from '../components/Register'
 
-export default function Login() {
+export default function Register() {
   return (
-    <div >
+    <div>
       <Navbar />
       <div className="bg-login ">
-
         <div style={{ height: 705 }}>
-          <FormLogin />
+          <FormRegister />
         </div>
       </div>
     </div>
-
   )
 }

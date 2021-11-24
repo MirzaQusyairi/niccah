@@ -9,7 +9,7 @@ export default function Login() {
             <form>
               <div className="mb-3">
                 <label htmlFor="exampleInputEmail1" className="form-label text-pink">Email</label>
-                <input type="email" className="form-control" id="exampleInputEmail1" placeholder="xxxxx@mail.com" aria-describedby="emailHelp" />
+                <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
               </div>
               <div className="mb-3">
                 <label htmlFor="exampleInputPassword1" className="form-label text-pink">Password</label>
