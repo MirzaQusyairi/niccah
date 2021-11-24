@@ -4,7 +4,7 @@ import ListPacket from './ListPacket'
 export default function CardPacket(props) {
   return (
     <div className="col-lg-4 col-md">
-      <div className={`${props.name === "Silver" ? 'bg-gradient-light' : ''} card card-pricing px-3`}>
+      <div className={`${props.name === "Silver" ? 'bg-gradient-light' : ''} ${props.name === "Platinum" ? 'bg-gradient-cyan' : ''} card card-pricing px-3`}>
         <div className="card-header py-5 border-0">
           <div className="h3 mb-0" style={{ textDecoration: 'line-through' }}><span
             className="price fw-600">{props.promo}</span>

@@ -19,7 +19,7 @@ export default function Footer() {
             <hr />
           </div>
           <p className="mb-0">© 2021 niccah.com. All rights reserved</p>
-          <p className="mb-0">Developed with <FaHeart /> by Mirza Qusyairi</p>
+          <p className="mb-0">Developed with <span style={{ color: '#ff3a75' }}><FaHeart /></span> by Mirza Qusyairi</p>
         </div>
 
       </div>
