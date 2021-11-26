@@ -7,8 +7,7 @@ export default function Login() {
   return (
     <div >
       <Navbar />
-      <div className="bg-login ">
-
+      <div className="bg-gradient-pinkblue">
         <div style={{ height: 705 }}>
           <FormLogin />
         </div>
