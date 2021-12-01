@@ -1,38 +1,23 @@
 import { useEffect, useState } from 'react'
 import Navbar from '../../components/NavbarUser'
-import { useLazyQuery, useMutation } from '@apollo/client'
-import { GetOrderAll } from '../../GraphQL/Query'
+import { useGetOrderAll } from '../../Hooks'
 import Loading from '../../components/Loading'
 import CardOrder from './CardOrder'
 
 export default function Admin() {
-  const [getOrderList, { data, loading, error }] = useLazyQuery(GetOrderAll)
+  const { dataAllOrder, loadingAllOrder, errorAllOrder } = useGetOrderAll()
 
   const [order, setOrder] = useState()
 
   useEffect(() => {
-    getOrderList();
-    if (data && typeof order === "undefined") {
-      setOrder(data.order)
+    if (dataAllOrder) {
+      setOrder(dataAllOrder.order);
     }
-  }, [data, order, getOrderList])
+  }, [dataAllOrder]);
 
-  if (error) {
-    console.log(error)
-    return null
+  if (errorAllOrder) {
+    return <h1>something went wrong</h1>
   }
-
-  if (loading) {
-    return <Loading />
-  }
-
-  // const onGetData = () => {
-  //   setOrder(() => {
-  //     getOrderList();
-  //     return data.order;
-  //   });
-  // };
-
 
   return (
     <>
@@ -43,11 +28,13 @@ export default function Admin() {
             <h1 className="fw-600">Orderan</h1>
           </div >
         </div>
-
+        {console.log(order)}
         <div className="row justify-content-center pt-3 pb-5 px-2">
-          {order?.map(item => (
-            <CardOrder key={item.id} data={item} />
-          ))}
+          {loadingAllOrder ? (<Loading />) : (
+            order?.map(item => (
+              <CardOrder key={item.id} data={item} />
+            ))
+          )}
         </div>
       </div>
     </>

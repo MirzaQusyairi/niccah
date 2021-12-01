@@ -1,71 +1,51 @@
-import React from 'react'
-import Navbar from '../../components/NavbarUser'
-import { Link } from 'react-router-dom'
-import { FaTrash } from 'react-icons/fa'
+import { useEffect, useState } from 'react'
+import Navbar from '../../components/Navbar'
+import { useGetOrderByUserID } from '../../Hooks'
+import Loading from '../../components/Loading'
+import CardOrder from './CardOrder'
 
 export default function User() {
+  const userID = localStorage.getItem("user_id")
+
+  const { dataByUserIDOrder, loadingByUserIDOrder, errorByUserIDOrder } = useGetOrderByUserID(userID)
+
+  const [orderbyuserid, setOrderByUserID] = useState()
+
+  console.log(dataByUserIDOrder)
+
+  useEffect(() => {
+    if (dataByUserIDOrder) {
+      setOrderByUserID(dataByUserIDOrder.order)
+    }
+  }, [dataByUserIDOrder])
+
+  if (errorByUserIDOrder) {
+    return <h1>something went wrong</h1>
+  }
+
   return (
     <>
       <Navbar />
       <div className="container">
         <div className="row justify-content-center text-center mt-5" >
           <div className="col-lg-7">
-            <h1 className="fw-600">Status Orderan</h1>
+            <h1 className="fw-600">Orderan</h1>
           </div >
-
         </div>
-
-        <div className="row justify-content-center py-5 px-2">
-
+        <div className="row justify-content-center pt-3 pb-5 px-2">
           <a href="/#" className="btn btn-primary btn-register w-20 ms-auto">Buat Undangan</a>
-          <div className="col-lg-12 card border-0 shadow bg-pink p-4 mt-3 mb-1">
-            <div className="row">
-              <div className="col-lg-10">
-                <h2 className="text-white fw-600 mb-4">Undangan Nikah Iwan & Fals</h2>
-                <h5 className="text-white mb-0">Selesai Pengerjaan : 10 Desember 2021</h5>
-                <h5 className="text-white ">Link               : <Link className="text-white" to="">https://iwan-fals.niccah.com</Link></h5>
-              </div>
-              <div className="col-lg-2 ms-auto">
-                <div className="card border-0 bg-light text-center mb-2">
-                  <h4 className="text-blue fw-600 mb-0 p-1">Menunggu</h4>
-                </div>
-                <a href="/#" className="btn btn-primary btn-register mb-3 float-end"><FaTrash /></a>
-              </div>
-            </div>
-          </div>
+          {loadingByUserIDOrder ? (<Loading />) : (
+            [
+              (orderbyuserid?.length > 0 ? (
+                orderbyuserid?.map(item => (
+                  <CardOrder key={item.id} data={item} />
+                ))
+              ) : (
+                <h3 className="text-center text-pink">tidak ada orderan.</h3>
+              ))
+            ]
 
-          <div className="col-lg-12 card border-0 shadow bg-pink p-4 mt-3 mb-1">
-            <div className="row">
-              <div className="col-lg-10">
-                <h2 className="text-white fw-600 mb-4">Undangan Nikah Iwan & Fals</h2>
-                <h5 className="text-white mb-0">Selesai Pengerjaan : 10 Desember 2021</h5>
-                <h5 className="text-white ">Link               : <Link className="text-white" to="">https://iwan-fals.niccah.com</Link></h5>
-              </div>
-              <div className="col-lg-2 ms-auto">
-                <div className="card border-0 bg-light text-center mb-2">
-                  <h4 className="text-blue fw-600 mb-0 p-1">Menunggu</h4>
-                </div>
-                <a href="/#" className="btn btn-primary btn-register mb-3 float-end"><FaTrash /></a>
-              </div>
-            </div>
-          </div>
-
-          <div className="col-lg-12 card border-0 shadow bg-pink p-4 mt-3 mb-1">
-            <div className="row">
-              <div className="col-lg-10">
-                <h2 className="text-white fw-600 mb-4">Undangan Nikah Iwan & Fals</h2>
-                <h5 className="text-white mb-0">Selesai Pengerjaan : 10 Desember 2021</h5>
-                <h5 className="text-white ">Link               : <Link className="text-white" to="">https://iwan-fals.niccah.com</Link></h5>
-              </div>
-              <div className="col-lg-2 ms-auto">
-                <div className="card border-0 bg-light text-center mb-2">
-                  <h4 className="text-blue fw-600 mb-0 p-1">Menunggu</h4>
-                </div>
-                <a href="/#" className="btn btn-primary btn-register mb-3 float-end"><FaTrash /></a>
-              </div>
-            </div>
-          </div>
-
+          )}
         </div>
       </div>
     </>

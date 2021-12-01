@@ -13,7 +13,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 }
 
 .text-blue{
-  color: #00ADDA;
+  color: #00ADDA !important;
 }
 
 .px-6{
@@ -46,7 +46,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 }
 
 .text-pink{
-  color: #FF3A75;
+  color: #FF3A75 !important;
 }
 
 .text-white{

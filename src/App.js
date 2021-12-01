@@ -14,7 +14,7 @@ function App() {
           <Route path="" exact element={<Home />} />
           <Route path="login" exact element={<Login />} />
           <Route path="register" exact element={<Register />} />
-          <Route path="dashboard/user" exact element={<User />} />
+          <Route path="dashboard/user/:id" exact element={<User />} />
           <Route path="dashboard/admin" exact element={<Admin />} />
 
           {/* <Route path="*" element={<NotFound />} /> */}
