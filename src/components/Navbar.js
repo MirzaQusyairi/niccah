@@ -3,7 +3,6 @@ import Logo from '../assets/img/Logo.png'
 import { Link } from 'react-router-dom'
 import { FaUser } from 'react-icons/fa'
 import { useNavigate } from 'react-router'
-import Loading from './Loading'
 
 
 export default function Navbar() {
@@ -33,7 +32,7 @@ export default function Navbar() {
             <span className="navbar-toggler-icon" />
           </button>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
-            {role === 0 ? (
+            {role === '0' ? (
               <ul className="navbar-nav">
                 <li className="nav-item mx-3">
                   <Link className="nav-link text-blue fw-bolder text-blue" to="/dashboard/admin">Dashboard</Link>

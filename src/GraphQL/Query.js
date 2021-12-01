@@ -7,6 +7,7 @@ const GetUserData = gql`
       email
       name
       phone
+      role
     }
   }
 `

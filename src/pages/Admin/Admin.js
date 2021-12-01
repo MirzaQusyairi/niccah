@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import Navbar from '../../components/NavbarUser'
+import Navbar from '../../components/Navbar'
 import { useGetOrderAll } from '../../Hooks'
 import Loading from '../../components/Loading'
 import CardOrder from './CardOrder'
