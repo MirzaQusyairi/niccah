@@ -12,6 +12,19 @@ const GetUserData = gql`
   }
 `
 
+const GetUserDataByID = gql`
+  query MyQuery($id: Int) {
+    user(where: {id: {_eq: $id}}) {
+      id
+      email
+      name
+      phone
+      password
+      avatar
+    }
+  }
+`
+
 const GetOrderAll = gql`
   query GetOrderAll {
     order(order_by: {id: desc}) {
@@ -49,6 +62,7 @@ const GetOrderByUserID = gql`
 
 export {
   GetUserData,
+  GetUserDataByID,
   GetOrderAll,
   GetOrderByUserID,
 }

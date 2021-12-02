@@ -2,6 +2,7 @@ import { React, useState, useEffect } from 'react'
 import { useNavigate } from 'react-router'
 import { useGetUserData } from '../Hooks'
 import LoadingV2 from './LoadingV2'
+import swal from 'sweetalert'
 
 export default function Login() {
   const navigate = useNavigate()
@@ -28,12 +29,13 @@ export default function Login() {
     if (error) {
       console.log(error);
     }
+    console.log(data)
   }
 
   useEffect(() => {
     if (!loading && data) {
       if (data.user.length === 0) {
-        alert("Username atau password salah")
+        swal("Error", "Email atau password salah!", "error");
       } else {
         localStorage.setItem("isLogin", true)
         localStorage.setItem("role", data?.user[0].role)

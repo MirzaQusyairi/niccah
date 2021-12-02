@@ -4,6 +4,7 @@ import Register from './pages/Register'
 import Home from './pages/Home/Home'
 import User from './pages/User/User'
 import Admin from './pages/Admin/Admin'
+import PageNotFound from './pages/NotFound/NotFound'
 
 
 function App() {
@@ -17,7 +18,7 @@ function App() {
           <Route path="dashboard/user/:id" exact element={<User />} />
           <Route path="dashboard/admin" exact element={<Admin />} />
 
-          {/* <Route path="*" element={<NotFound />} /> */}
+          <Route path="*" element={<PageNotFound />} />
         </Routes>
       </BrowserRouter>
 

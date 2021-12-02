@@ -1,5 +1,6 @@
 import React from 'react'
 import ListPacket from './ListPacket'
+import { Link } from 'react-router-dom'
 
 export default function CardPacket(props) {
   return (
@@ -28,7 +29,7 @@ export default function CardPacket(props) {
             })}
 
           </ul>
-          <a href="/#" className={`${props.name === 'Platinum' ? 'btn-outline-primary btn-login' : 'btn-primary btn-register'} btn mb-3`} >Pilih Paket</a>
+          <Link to="" className={`${props.name === 'Platinum' ? 'btn-outline-primary btn-login' : 'btn-primary btn-register'} btn mb-3`} >Pilih Paket</Link>
         </div>
       </div>
     </div >

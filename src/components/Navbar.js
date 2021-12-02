@@ -32,19 +32,22 @@ export default function Navbar() {
             <span className="navbar-toggler-icon" />
           </button>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
-            {role === '0' ? (
-              <ul className="navbar-nav">
-                <li className="nav-item mx-3">
-                  <Link className="nav-link text-blue fw-bolder text-blue" to="/dashboard/admin">Dashboard</Link>
-                </li>
-              </ul>
-            ) : (
-              <ul className="navbar-nav">
-                <li className="nav-item mx-3">
-                  <Link className="nav-link text-blue fw-bolder text-blue" to={`/dashboard/user/${id_user}`}>Dashboard</Link>
-                </li>
-              </ul>
-            )}
+            {islogin === 'true' ? (
+              [role === '0' ? (
+                <ul className="navbar-nav">
+                  <li className="nav-item mx-3">
+                    <Link className="nav-link text-blue fw-bolder text-blue" to="/dashboard/admin">Dashboard</Link>
+                  </li>
+                </ul>
+              ) : (
+                <ul className="navbar-nav">
+                  <li className="nav-item mx-3">
+                    <Link className="nav-link text-blue fw-bolder text-blue" to={`/dashboard/user/${id_user}`}>Dashboard</Link>
+                  </li>
+                </ul>
+              )]
+            ) : (<></>)
+            }
 
             {islogin !== 'true' ? (
               <div className="ms-auto">

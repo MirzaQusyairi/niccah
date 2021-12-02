@@ -1,16 +1,13 @@
 import { forwardRef, useState } from 'react'
 import styles from './CreateOrder.module.css'
 
-const CreateOrder = forwardRef((props, ref) => {
-  const { onClick, onSubmit } = props
-  const today = new Date().toJSON().slice(0, 10);
-  const userID = localStorage.getItem("user_id")
+const UpdateOrder = forwardRef((props, ref) => {
+  const { onClick, onSubmit, dataUpdate } = props
 
   const [input, setInput] = useState({
-    user_id: userID,
-    name: "",
-    packet: "",
-    date_finish: "",
+    id: dataUpdate.id,
+    link: dataUpdate.link,
+    status: dataUpdate.status,
   })
 
   const onChange = (e) => {
@@ -25,7 +22,6 @@ const CreateOrder = forwardRef((props, ref) => {
       ...input
     })
     onClickClose()
-
   }
 
   const onClickClose = () => {
@@ -55,35 +51,28 @@ const CreateOrder = forwardRef((props, ref) => {
             fill="#00adda"
           />
         </svg>
-        <h2 className="fw-bold text-center p-3 pb-4">Buat Undangan</h2>
-        <form className="px-4 px-md-5" onSubmit={handleSubmit}>
+        <h2 className="fw-bold text-center p-3 pb-4">Perbarui Undangan</h2>
+        <form className="px-4 px-md-5">
+          <label>Pilih Status</label>
+          <select name="status" value={input.status} onChange={onChange} className="form-select px-3 py-2 mb-4">
+            <option selected disabled>Pilih Status</option>
+            <option value="menunggu">Menunggu</option>
+            <option value="diproses">Diproses</option>
+            <option value="selesai">Selesai</option>
+          </select>
+
+          <label>Link Undangan</label>
           <input
             className={`${styles.input} form-control px-3 py-2 mb-4`}
-            value={input.name}
-            name="name"
-            placeholder="Nama Undangan"
+            value={input.link}
+            name="link"
+            placeholder="Link Undangan"
             onChange={onChange}
             type="text"
           />
-          <select name="packet" onChange={onChange} className="form-select px-3 py-2 mb-4">
-            <option selected disabled>Pilih paket</option>
-            <option value="bronze">Bronze [Gratis]</option>
-            <option value="silver">Silver [79K]</option>
-            <option value="platinum">Platinum [125K]</option>
-          </select>
-          <label>Permintaan Tanggal Selesai</label>
-          <input
-            className={`${styles.input} form-control px-3 py-2 mb-4`}
-            value={input.date_finish}
-            name="date_finish"
-            onChange={onChange}
-            type="date"
-            format="yyyy/mm/dd"
-            min={today}
-          />
 
           <button type="submit" className={`btn btn-primary btn-register border-0 fw-bolder text-white rounded p-2 w-100`} onClick={handleSubmit}>
-            Buat
+            Perbarui
           </button>
         </form>
       </div>
@@ -91,4 +80,4 @@ const CreateOrder = forwardRef((props, ref) => {
   )
 })
 
-export default CreateOrder
+export default UpdateOrder
