@@ -3,6 +3,8 @@ import Navbar from '../../components/Navbar'
 import ImgWedding from '../../assets/img/wedding.svg'
 import CardPacket from './CardPacket'
 import Footer from '../../components/Footer'
+import { useNavigate } from 'react-router'
+import swal from 'sweetalert'
 
 const Packet = {
   "packet": [
@@ -50,6 +52,16 @@ const Packet = {
 }
 
 export default function Home() {
+  const navigate = useNavigate()
+  let islogin = localStorage.getItem("isLogin")
+
+  const HandleClickCreate = () => {
+    if (islogin !== 'true') {
+      swal("Warning", "Masuk terlebih dahulu!", "warning");
+      navigate("/login")
+    }
+  }
+
   return (
     <>
       <Navbar />
@@ -58,7 +70,7 @@ export default function Home() {
           <div className="col-xl-6">
             <h1 className="fs-52 fw-700 text-blue">Undangan Pernikahan Online</h1>
             <p className="text-muted mt-4 width-70">Undangan pernikahan online dikemas dalam bentuk website yang menarik dapat dibagikan kapanpun dan dimanapun.</p>
-            <button className="btn btn-lg btn-primary btn-register px-6 mt-5" type="submit">Buat Undangan</button>
+            <button onClick={HandleClickCreate} className="btn btn-lg btn-primary btn-register px-6 mt-5" type="submit">Buat Undangan</button>
           </div>
           <div className="col-xl-6">
             <img src={ImgWedding} width="600" alt="" />
@@ -86,6 +98,7 @@ export default function Home() {
             />
           })}
         </div>
+
       </div>
       <Footer />
 

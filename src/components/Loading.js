@@ -1,6 +1,6 @@
 export default function Loading() {
   return (
-    <div style={{ display: 'flex', alignItems: 'center', minHeight: '750px' }}>
+    <div style={{ display: 'flex', alignItems: 'center' }}>
       <svg
         style={{
           margin: 'auto',

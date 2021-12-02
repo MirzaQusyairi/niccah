@@ -1,0 +1,46 @@
+.background {
+	background-color: rgba(0, 0, 0, 0.25);
+	height: 100vh;
+	width: 100vw;
+	z-index: 3;
+}
+
+.button {
+	background-color: #f2af02;
+	height: 100%;
+	width: 100px;
+}
+
+.container {
+	width: 300px;
+}
+
+.input:focus {
+	outline: none;
+}
+
+.input::placeholder {
+	color: #8f8d8d;
+}
+
+.input[type="number"] {
+	-moz-appearance: textfield;
+}
+
+.input::-webkit-outer-spin-button,
+.input::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+
+.join {
+	background-color: white;
+	border: 0;
+	color: #f2af02;
+}
+
+@media (min-width: 768px) {
+	.container {
+		width: 450px;
+	}
+}
