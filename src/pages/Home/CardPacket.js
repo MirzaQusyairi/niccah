@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 
 export default function CardPacket(props) {
   return (
-    <div className="col-lg-4 col-md">
+    <div className="col-lg-4 col-md py-3">
       <div className=
         {`
           ${props.name === "Silver" ? 'bg-gradient-light' : ''} 

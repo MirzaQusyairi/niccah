@@ -8,6 +8,14 @@ const CreateUser = gql`
   }
 `
 
+const UpdateUser = gql`
+  mutation MyMutation($id: Int, $email: String, $name: String, $phone: String, $password: String, $avatar: String) {
+    update_user(where: {id: {_eq: $id}}, _set: {email: $email, name: $name, phone: $phone, password: $password, avatar: $avatar}) {
+      affected_rows
+    }
+  }
+`
+
 const InsertOrder = gql`
   mutation MyMutation($user_id: Int, $name: String, $packet: String, $date_finish: date) {
     insert_order(objects: {user_id: $user_id, name: $name, packet: $packet, date_finish: $date_finish}) {
@@ -42,6 +50,7 @@ const DeleteOrder = gql`
 
 export {
   CreateUser,
+  UpdateUser,
   InsertOrder,
   UpdateOrder,
   UpdateOrderByAdmin,

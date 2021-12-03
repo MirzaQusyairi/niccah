@@ -8,7 +8,7 @@ export default function Footer() {
       <div className="container">
         <div className="row py-5">
           <a className="navbar-brand" href="/"><img src={Logo} alt="logo" width={120} /></a>
-          <p className="w-25">
+          <p className="text-footer">
             niccah.com adalah layanan untuk membuat undangan pernikahan secara online gratis dengan mudah. Undangan yang dibuat akan berbentuk sebuah website yang dapat di akses dan dibagikan kapanpun.
           </p>
           <div style={{ fontSize: 28 }}>
