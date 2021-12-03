@@ -40,11 +40,16 @@ export default function Navbar() {
                   </li>
                 </ul>
               ) : (
-                <ul className="navbar-nav">
+                <><ul className="navbar-nav">
                   <li className="nav-item mx-3">
                     <Link className="nav-link text-blue fw-bolder text-blue" to={`/dashboard/user/${id_user}`}>Dashboard</Link>
                   </li>
                 </ul>
+                  <ul className="navbar-nav">
+                    <li className="nav-item mx-3">
+                      <Link className="nav-link text-blue fw-bolder text-blue" to="/profile">Profile</Link>
+                    </li>
+                  </ul></>
               )]
             ) : (<></>)
             }
@@ -59,10 +64,10 @@ export default function Navbar() {
                 </Link>
               </div>
             ) : (
-              <div className="ms-auto d-flex align-items-center">
+              <div className="ms-auto d-flex align-items-center user-profile">
                 <p className="fw-bold m-0 pe-2 text-end">Hi, {name_user}<br /><Link style={{ color: '#00ADDA' }} onClick={Logout} to="">keluar</Link></p>
 
-                <div className="d-flex bg-light justify-content-center align-items-center rounded-circle" style={{ width: 50, height: 50 }}>
+                <div className="d-flex bg-light justify-content-center align-items-center rounded-circle img" style={{ width: 50, height: 50 }}>
                   <FaUser style={{ fontSize: 22 }} />
                 </div>
               </div>

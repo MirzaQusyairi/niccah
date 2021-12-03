@@ -4,7 +4,6 @@ import { useGetOrderByUserID, useInsertOrder, useUpdateOrder, useDeleteOrder } f
 import Loading from '../../components/Loading'
 import CardOrder from './CardOrder'
 import CreateOrder from './CreateOrder'
-import { Link } from 'react-router-dom'
 import { useNavigate } from 'react-router'
 import { ToastContainer, toast } from 'react-toastify'
 
@@ -102,7 +101,7 @@ export default function User() {
           </div >
         </div>
         <div className="row justify-content-center pt-3 pb-5 px-2">
-          <Link to="" className="btn btn-primary btn-register w-20 ms-auto" onClick={onOpenCreate}>Buat Undangan</Link>
+          <button className="btn btn-primary btn-register w-20 ms-auto create-order" onClick={onOpenCreate}>Buat Undangan</button>
           {openCreate && (
             <CreateOrder ref={ref} onClick={handleCreateModal} onSubmit={onInsertOrder} />
           )}
